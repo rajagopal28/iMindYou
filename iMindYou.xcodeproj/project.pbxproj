@@ -18,6 +18,11 @@
 		814DD0A31EFCD159001B4E87 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0A11EFCD159001B4E87 /* Quick.framework */; };
 		814DD0A51EFCD17D001B4E87 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 814DD0A01EFCD159001B4E87 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		814DD0A61EFCD17D001B4E87 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 814DD0A11EFCD159001B4E87 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		814DD0AD1EFD3AE0001B4E87 /* ReminderModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814DD0AC1EFD3AE0001B4E87 /* ReminderModelSpec.swift */; };
+		814DD0AF1EFD3AF0001B4E87 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814DD0AE1EFD3AF0001B4E87 /* Reminder.swift */; };
+		814DD0B11EFD3B33001B4E87 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0B01EFD3B33001B4E87 /* SQLite.framework */; };
+		814DD0B21EFD3BD1001B4E87 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0A01EFCD159001B4E87 /* Nimble.framework */; };
+		814DD0B31EFD3BD1001B4E87 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0A11EFCD159001B4E87 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,9 @@
 		814DD0911EFCCB17001B4E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		814DD0A01EFCD159001B4E87 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		814DD0A11EFCD159001B4E87 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		814DD0AC1EFD3AE0001B4E87 /* ReminderModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderModelSpec.swift; sourceTree = "<group>"; };
+		814DD0AE1EFD3AF0001B4E87 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		814DD0B01EFD3B33001B4E87 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 			files = (
 				814DD0A21EFCD159001B4E87 /* Nimble.framework in Frameworks */,
 				814DD0A31EFCD159001B4E87 /* Quick.framework in Frameworks */,
+				814DD0B11EFD3B33001B4E87 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814DD0B21EFD3BD1001B4E87 /* Nimble.framework in Frameworks */,
+				814DD0B31EFD3BD1001B4E87 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +131,7 @@
 		814DD06E1EFCCB17001B4E87 /* iMindYou */ = {
 			isa = PBXGroup;
 			children = (
+				814DD0AE1EFD3AF0001B4E87 /* Reminder.swift */,
 				814DD06F1EFCCB17001B4E87 /* AppDelegate.swift */,
 				814DD0711EFCCB17001B4E87 /* ViewController.swift */,
 				814DD0731EFCCB17001B4E87 /* Main.storyboard */,
@@ -133,6 +145,7 @@
 		814DD0831EFCCB17001B4E87 /* iMindYouTests */ = {
 			isa = PBXGroup;
 			children = (
+				814DD0AC1EFD3AE0001B4E87 /* ReminderModelSpec.swift */,
 				814DD0841EFCCB17001B4E87 /* iMindYouTests.swift */,
 				814DD0861EFCCB17001B4E87 /* Info.plist */,
 			);
@@ -151,6 +164,7 @@
 		814DD09F1EFCD159001B4E87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				814DD0B01EFD3B33001B4E87 /* SQLite.framework */,
 				814DD0A01EFCD159001B4E87 /* Nimble.framework */,
 				814DD0A11EFCD159001B4E87 /* Quick.framework */,
 			);
@@ -297,6 +311,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
 			);
 			name = "Run Build Script";
 			outputPaths = (
@@ -312,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814DD0AF1EFD3AF0001B4E87 /* Reminder.swift in Sources */,
 				814DD0721EFCCB17001B4E87 /* ViewController.swift in Sources */,
 				814DD0701EFCCB17001B4E87 /* AppDelegate.swift in Sources */,
 			);
@@ -321,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814DD0AD1EFD3AE0001B4E87 /* ReminderModelSpec.swift in Sources */,
 				814DD0851EFCCB17001B4E87 /* iMindYouTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +515,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iMindYouTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dextrs.ios.app.iMindYouTests;
@@ -512,6 +533,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iMindYouTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dextrs.ios.app.iMindYouTests;
@@ -566,6 +591,7 @@
 				814DD0961EFCCB17001B4E87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		814DD0971EFCCB17001B4E87 /* Build configuration list for PBXNativeTarget "iMindYouTests" */ = {
 			isa = XCConfigurationList;
@@ -574,6 +600,7 @@
 				814DD0991EFCCB17001B4E87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		814DD09A1EFCCB17001B4E87 /* Build configuration list for PBXNativeTarget "iMindYouUITests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +609,7 @@
 				814DD09C1EFCCB17001B4E87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
