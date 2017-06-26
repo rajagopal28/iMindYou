@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ReminderTableViewController: UITableViewController {
     
@@ -93,15 +94,40 @@ class ReminderTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+       // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+        case "AddItem":
+            os_log("Adding a new reminder.", log: OSLog.default, type: .debug)
+            
+        case "ShowDetail":
+            guard let reminderDetailViewController = segue.destination as? ReminderViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedReminderCell = sender as? ReminderViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedReminderCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedReminder = reminders[indexPath.row]
+            reminderDetailViewController.reminder = selectedReminder
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+        }
     }
-    */
+    
     
     //MARK: Private Methods
     
@@ -118,14 +144,22 @@ class ReminderTableViewController: UITableViewController {
 
     //MARK: Actions
     
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? ReminderViewController, let meal = sourceViewController.reminder {
+    @IBAction func unwindToReminderList(sender: UIStoryboardSegue) {
+        
+        
+        
+        if let sourceViewController = sender.source as? ReminderViewController, let reminder = sourceViewController.reminder {
             
-            // Add a new meal.
-            let newIndexPath = IndexPath(row: reminders.count, section: 0)
-            
-            reminders.append(meal)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                reminders[selectedIndexPath.row] = reminder
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                // Add a new reminder.
+                let newIndexPath = IndexPath(row: reminders.count, section: 0)
+                
+                reminders.append(reminder)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
 }

@@ -23,6 +23,8 @@ class ReminderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        loadPassedReminder()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +50,32 @@ class ReminderViewController: UIViewController {
         
         reminder = Reminder(title: title, summary: summary, timeStamp: dateTime)
     }
+    
+    // MARK: Actions
+    @IBAction func cancelAction(_ sender: Any) {
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddMode = presentingViewController is UINavigationController
+        if isPresentingInAddMode {
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The ReminderViewController is not inside a navigation controller.")
+        }
+    }
+    
+    // MARK: private methods
+    
+    private func loadPassedReminder() {
+        // Set up views if editing an existing Reminder.
+        if let reminder = reminder {
+            navigationItem.title = reminder.title
+            titleTextView.text   = reminder.title
+            summaryTextView.text = reminder.summary
+            dateTimePickerView.setDate(reminder.reminderTimestamp, animated: true)
+        }
+    }
+    
 
 
 }

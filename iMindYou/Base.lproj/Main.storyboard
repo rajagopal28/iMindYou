@@ -53,6 +53,7 @@
                                     <outlet property="dateTimeLabel" destination="t6n-hu-H3n" id="l4q-jz-Owx"/>
                                     <outlet property="descriptionLabel" destination="MXM-Hc-6PJ" id="g7h-eH-Fqm"/>
                                     <outlet property="titleLabel" destination="Qkp-3q-Hwr" id="hh9-x4-XVZ"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="afn-kc-VIp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -64,7 +65,7 @@
                     <navigationItem key="navigationItem" title="Reminders" id="gK3-cU-i9V">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tHq-9r-cML">
                             <connections>
-                                <segue destination="0Ah-p2-K8H" kind="show" id="2dm-kZ-fiA"/>
+                                <segue destination="0Ah-p2-K8H" kind="show" identifier="AddItem" id="2dm-kZ-fiA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -135,10 +136,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add/Edit Reminder" id="gfr-W8-R8G">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LSx-mh-rLj"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LSx-mh-rLj">
+                            <connections>
+                                <action selector="cancelAction:" destination="BYZ-38-t0r" id="1AX-4x-ZMg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0ky-ek-vD1">
                             <connections>
-                                <segue destination="0Ug-fW-cLa" kind="unwind" unwindAction="unwindToMealListWithSender:" id="IhH-To-VGb"/>
+                                <segue destination="0Ug-fW-cLa" kind="unwind" unwindAction="unwindToReminderListWithSender:" id="IhH-To-VGb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -188,7 +193,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNf-nW-Zwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="28.335832083958024"/>
+            <point key="canvasLocation" x="1114" y="558"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="afn-kc-VIp"/>
+    </inferredMetricsTieBreakers>
 </document>
