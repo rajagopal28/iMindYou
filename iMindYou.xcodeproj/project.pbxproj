@@ -14,10 +14,6 @@
 		814DD07A1EFCCB17001B4E87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814DD0781EFCCB17001B4E87 /* LaunchScreen.storyboard */; };
 		814DD0851EFCCB17001B4E87 /* iMindYouTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814DD0841EFCCB17001B4E87 /* iMindYouTests.swift */; };
 		814DD0901EFCCB17001B4E87 /* iMindYouUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814DD08F1EFCCB17001B4E87 /* iMindYouUITests.swift */; };
-		814DD0A21EFCD159001B4E87 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0A01EFCD159001B4E87 /* Nimble.framework */; };
-		814DD0A31EFCD159001B4E87 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0A11EFCD159001B4E87 /* Quick.framework */; };
-		814DD0A51EFCD17D001B4E87 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 814DD0A01EFCD159001B4E87 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		814DD0A61EFCD17D001B4E87 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 814DD0A11EFCD159001B4E87 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		814DD0AD1EFD3AE0001B4E87 /* ReminderModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814DD0AC1EFD3AE0001B4E87 /* ReminderModelSpec.swift */; };
 		814DD0AF1EFD3AF0001B4E87 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814DD0AE1EFD3AF0001B4E87 /* Reminder.swift */; };
 		814DD0B11EFD3B33001B4E87 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0B01EFD3B33001B4E87 /* SQLite.framework */; };
@@ -49,8 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				814DD0A51EFCD17D001B4E87 /* Nimble.framework in CopyFiles */,
-				814DD0A61EFCD17D001B4E87 /* Quick.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				814DD0A21EFCD159001B4E87 /* Nimble.framework in Frameworks */,
-				814DD0A31EFCD159001B4E87 /* Quick.framework in Frameworks */,
 				814DD0B11EFD3B33001B4E87 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +192,7 @@
 				814DD07C1EFCCB17001B4E87 /* Sources */,
 				814DD07D1EFCCB17001B4E87 /* Frameworks */,
 				814DD07E1EFCCB17001B4E87 /* Resources */,
+				81A600EE1F00EB62002BA9C7 /* Run Build Script */,
 			);
 			buildRules = (
 			);
@@ -309,9 +302,23 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
+			);
+			name = "Run Build Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		81A600EE1F00EB62002BA9C7 /* Run Build Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
 			);
 			name = "Run Build Script";
 			outputPaths = (
