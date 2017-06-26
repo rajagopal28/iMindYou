@@ -7,7 +7,7 @@ import Foundation
 
 class Reminder: NSObject {
 
-    //MARK: Properties
+    // MARK: Properties
     var title: String
     var summary: String
     var reminderTimestamp: Date

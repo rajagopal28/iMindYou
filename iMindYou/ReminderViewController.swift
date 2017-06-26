@@ -8,8 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ReminderViewController: UIViewController {
 
+    // MARK: view Outlets
+    @IBOutlet weak var titleTextView: UITextField!
+    @IBOutlet weak var dateTimePickerView: UIDatePicker!
+    @IBOutlet weak var summaryTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
