@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="175.19999999999999" y="29.23538230884558"/>
         </scene>
-        <!--Add/Edit Reminder-->
+        <!--New Reminder-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ReminderViewController" customModule="iMindYou" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,6 +104,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-dT-UlH">
                                         <rect key="frame" x="0.0" y="50.5" width="329" height="166.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="remDescription" label="Description Text"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -135,7 +136,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dVE-I1-46f" secondAttribute="bottom" constant="100" id="cHd-ZT-yem"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add/Edit Reminder" id="gfr-W8-R8G">
+                    <navigationItem key="navigationItem" title="New Reminder" id="gfr-W8-R8G">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LSx-mh-rLj">
                             <connections>
                                 <action selector="cancelAction:" destination="BYZ-38-t0r" id="1AX-4x-ZMg"/>
