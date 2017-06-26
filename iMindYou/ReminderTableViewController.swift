@@ -116,4 +116,16 @@ class ReminderTableViewController: UITableViewController {
         print (reminders.count)
     }
 
+    //MARK: Actions
+    
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ReminderViewController, let meal = sourceViewController.reminder {
+            
+            // Add a new meal.
+            let newIndexPath = IndexPath(row: reminders.count, section: 0)
+            
+            reminders.append(meal)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
 }

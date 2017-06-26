@@ -64,7 +64,7 @@
                     <navigationItem key="navigationItem" title="Reminders" id="gK3-cU-i9V">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tHq-9r-cML">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="2dm-kZ-fiA"/>
+                                <segue destination="0Ah-p2-K8H" kind="show" id="2dm-kZ-fiA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -73,7 +73,7 @@
             </objects>
             <point key="canvasLocation" x="175.19999999999999" y="29.23538230884558"/>
         </scene>
-        <!--Reminder View Controller-->
+        <!--Add/Edit Reminder-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ReminderViewController" customModule="iMindYou" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,15 +134,25 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dVE-I1-46f" secondAttribute="bottom" constant="100" id="cHd-ZT-yem"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Add/Edit Reminder" id="gfr-W8-R8G">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LSx-mh-rLj"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0ky-ek-vD1">
+                            <connections>
+                                <segue destination="0Ug-fW-cLa" kind="unwind" unwindAction="unwindToMealListWithSender:" id="IhH-To-VGb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateTimePickerView" destination="n1B-OI-da5" id="fDZ-sD-31e"/>
+                        <outlet property="saveButton" destination="0ky-ek-vD1" id="2CO-em-t2Z"/>
                         <outlet property="summaryTextView" destination="MHn-dT-UlH" id="Ydl-6w-4LP"/>
                         <outlet property="titleTextView" destination="Bta-wJ-FtR" id="DbZ-Tm-Bfu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="0Ug-fW-cLa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="29"/>
+            <point key="canvasLocation" x="1983.2" y="28.335832083958024"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vfN-Jh-pMl">
@@ -161,6 +171,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7a-E3-SmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-764" y="29.23538230884558"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4MR-Sa-hFU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Ah-p2-K8H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="86Y-Qj-Dpi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="It1-WB-MYo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nNf-nW-Zwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044" y="28.335832083958024"/>
         </scene>
     </scenes>
 </document>
