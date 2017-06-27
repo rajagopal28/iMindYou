@@ -123,16 +123,13 @@ class iMindYouUITests: XCTestCase {
         let reminderTitleTextField = app.textFields["Reminder Title"]
         reminderTitleTextField.tap()
         reminderTitleTextField.tap()
-        reminderTitleTextField.typeText("Now 6")
+        reminderTitleTextField.typeText("Reminder6")
         
         let remdescriptionTextView = app.textViews["remDescription"]
         remdescriptionTextView.tap()
         remdescriptionTextView.tap()
         remdescriptionTextView.typeText("description")
         
-        let pickerWheel = app.datePickers.pickerWheels["8 o’clock"]
-        pickerWheel.tap()
-
         
         let saveButton = app.navigationBars["New Reminder"].buttons["Save"]
         XCTAssertTrue(saveButton.exists)
@@ -143,8 +140,93 @@ class iMindYouUITests: XCTestCase {
         allCells = app.tables.cells
         XCTAssertEqual(allCells.count, 6, "There should be 6 reminders after save")
         
-        let newCell = allCells.containing(.staticText, identifier:"Title : Now 6").staticTexts["Description : description"]
+        let newCell = allCells.containing(.staticText, identifier:"Title : Reminder6").staticTexts["Description : description"]
         XCTAssertTrue(newCell.exists)
+        
+    }
+    
+    func testShouldNavigateToEditItemPageOnClickingItem() {
+        app.launch()
+        let addButton = app.navigationBars["Reminders"].buttons["Add"]
+        addButton.tap()
+        
+        var reminderTitleTextField = app.textFields["Reminder Title"]
+        reminderTitleTextField.tap()
+        reminderTitleTextField.tap()
+        reminderTitleTextField.typeText("Item6")
+        
+        let remdescriptionTextView = app.textViews["remDescription"]
+        remdescriptionTextView.tap()
+        remdescriptionTextView.tap()
+        remdescriptionTextView.typeText("description")
+        
+        
+        let saveButton = app.navigationBars["New Reminder"].buttons["Save"]
+        XCTAssertTrue(saveButton.exists)
+        saveButton.tap()
+        
+        let appTitle = app.staticTexts["Reminders"]
+        XCTAssertTrue(appTitle.exists)
+        
+        let allCells = app.tables.cells
+        var newCell = allCells.containing(.staticText, identifier:"Title : Item6").staticTexts["Description : description"]
+        XCTAssertTrue(newCell.exists)
+        
+        newCell.tap()
+        XCTAssertTrue(app.navigationBars["Item6"].exists)
+        
+        reminderTitleTextField = app.textFields["Reminder Title"]
+        XCTAssertEqual(reminderTitleTextField.value as! String, "Item6")
+        reminderTitleTextField.tap()
+        reminderTitleTextField.typeText("New")
+        
+        app.navigationBars["Item6"].buttons["Save"].tap()
+        
+        newCell = allCells.containing(.staticText, identifier:"Title : Item6New").staticTexts["Description : description"]
+        XCTAssertTrue(newCell.exists)
+    }
+    
+    func testShouldBeAbleToDeleteTheAddedItem() {
+        
+        app.launch()
+        let addButton = app.navigationBars["Reminders"].buttons["Add"]
+        addButton.tap()
+        
+        let reminderTitleTextField = app.textFields["Reminder Title"]
+        reminderTitleTextField.tap()
+        reminderTitleTextField.tap()
+        reminderTitleTextField.typeText("Reminder6")
+        
+        let remdescriptionTextView = app.textViews["remDescription"]
+        remdescriptionTextView.tap()
+        remdescriptionTextView.tap()
+        remdescriptionTextView.typeText("description")
+       
+        
+        let saveButton = app.navigationBars["New Reminder"].buttons["Save"]
+        XCTAssertTrue(saveButton.exists)
+        saveButton.tap()
+
+        let appTitle = app.staticTexts["Reminders"]
+        XCTAssertTrue(appTitle.exists)
+        
+        app.navigationBars["Reminders"].buttons["Edit"].tap()
+        
+        let allCells = app.tables.cells
+        var newCell = allCells.containing(.staticText, identifier:"Title : Reminder6").staticTexts["Description : description"]
+        XCTAssertTrue(newCell.exists)
+
+        let predicateNewItem = NSPredicate(format: "label BEGINSWITH 'Delete Title : Reminder6'")
+        let itemToDelete = allCells.buttons.element(matching: predicateNewItem)
+        XCTAssertTrue(itemToDelete.exists)
+        itemToDelete.tap()
+        XCTAssertTrue(allCells.buttons["Delete"].exists)
+        allCells.buttons["Delete"].tap()
+        
+        newCell = allCells.containing(.staticText, identifier:"Title : Reminder6").staticTexts["Description : description"]
+        XCTAssertFalse(newCell.exists)
+        
+         XCTAssertEqual(allCells.count, 5, "There should be 5 reminders after delete")
         
     }
     
