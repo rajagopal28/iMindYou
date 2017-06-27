@@ -19,7 +19,7 @@ class ReminderTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        loadSampleReminders()
+        loadRemindersFromDB()
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,6 +69,9 @@ class ReminderTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let reminder = reminders[indexPath.row]
+            let _ = reminder.delete()
+            
             reminders.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -129,13 +132,12 @@ class ReminderTableViewController: UITableViewController {
     
     //MARK: Private Methods
     
-    private func loadSampleReminders() {
+    private func loadRemindersFromDB() {
         
-        let title = "Title"
-        let summary = "Summary"
-        let dateTime = Date()
-        for index in 1...5 {
-            reminders.append(Reminder(title: title + String(index), summary: summary + String(index), timeStamp: dateTime)!)
+        Reminder.initDB()
+        let reminderList: [Reminder] = Reminder.all()
+        if !reminderList.isEmpty {
+            reminders += reminderList
         }
         print (reminders.count)
     }
@@ -149,13 +151,18 @@ class ReminderTableViewController: UITableViewController {
         if let sourceViewController = sender.source as? ReminderViewController, let reminder = sourceViewController.reminder {
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                let _ = reminder.update()
                 reminders[selectedIndexPath.row] = reminder
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             } else {
+                // save to db
+                let _ = reminder.save()
+                
                 // Add a new reminder.
                 let newIndexPath = IndexPath(row: reminders.count, section: 0)
                 
                 reminders.append(reminder)
+                
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }

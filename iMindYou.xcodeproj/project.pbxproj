@@ -21,6 +21,8 @@
 		81A600F01F011DE4002BA9C7 /* ReminderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A600EF1F011DE4002BA9C7 /* ReminderViewCell.swift */; };
 		81A600F21F012426002BA9C7 /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A600F11F012426002BA9C7 /* ReminderTableViewController.swift */; };
 		81A600F41F012506002BA9C7 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A600F31F012506002BA9C7 /* ReminderViewController.swift */; };
+		81A600F61F02AC11002BA9C7 /* Reminder+SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A600F51F02AC11002BA9C7 /* Reminder+SQLite.swift */; };
+		81A600F81F02B266002BA9C7 /* RemindersDBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A600F71F02B266002BA9C7 /* RemindersDBConnection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		81A600EF1F011DE4002BA9C7 /* ReminderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewCell.swift; sourceTree = "<group>"; };
 		81A600F11F012426002BA9C7 /* ReminderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
 		81A600F31F012506002BA9C7 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		81A600F51F02AC11002BA9C7 /* Reminder+SQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reminder+SQLite.swift"; sourceTree = "<group>"; };
+		81A600F71F02B266002BA9C7 /* RemindersDBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersDBConnection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +133,9 @@
 			children = (
 				81A600F31F012506002BA9C7 /* ReminderViewController.swift */,
 				814DD0AE1EFD3AF0001B4E87 /* Reminder.swift */,
+				81A600F51F02AC11002BA9C7 /* Reminder+SQLite.swift */,
 				814DD06F1EFCCB17001B4E87 /* AppDelegate.swift */,
+				81A600F71F02B266002BA9C7 /* RemindersDBConnection.swift */,
 				814DD0731EFCCB17001B4E87 /* Main.storyboard */,
 				81A600EF1F011DE4002BA9C7 /* ReminderViewCell.swift */,
 				814DD0761EFCCB17001B4E87 /* Assets.xcassets */,
@@ -341,8 +347,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				81A600F41F012506002BA9C7 /* ReminderViewController.swift in Sources */,
+				81A600F81F02B266002BA9C7 /* RemindersDBConnection.swift in Sources */,
 				81A600F21F012426002BA9C7 /* ReminderTableViewController.swift in Sources */,
 				814DD0AF1EFD3AF0001B4E87 /* Reminder.swift in Sources */,
+				81A600F61F02AC11002BA9C7 /* Reminder+SQLite.swift in Sources */,
 				81A600F01F011DE4002BA9C7 /* ReminderViewCell.swift in Sources */,
 				814DD0701EFCCB17001B4E87 /* AppDelegate.swift in Sources */,
 			);

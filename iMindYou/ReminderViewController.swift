@@ -43,12 +43,12 @@ class ReminderViewController: UIViewController {
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
         }
-        
+        let id = reminder?.id
         let title = titleTextView.text ?? ""
         let summary = summaryTextView.text ?? ""
         let dateTime = dateTimePickerView.date
         
-        reminder = Reminder(title: title, summary: summary, timeStamp: dateTime)
+        reminder = Reminder(id: id, title: title, summary: summary, timeStamp: dateTime)
     }
     
     // MARK: Actions

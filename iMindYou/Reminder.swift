@@ -8,13 +8,17 @@ import Foundation
 class Reminder: NSObject {
 
     // MARK: Properties
+    var id: Int?
     var title: String
     var summary: String
     var reminderTimestamp: Date
 
-    init?(title: String, summary: String, timeStamp: Date) {
+    init?(id: Int?, title: String, summary: String, timeStamp: Date) {
         if title.isEmpty {
             return nil
+        }
+        if let id = id {
+            self.id = id
         }
         self.title = title
         self.summary = summary
