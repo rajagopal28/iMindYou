@@ -12,7 +12,6 @@ import os.log
 class ReminderTableViewController: UITableViewController {
     
     var reminders = [Reminder]()
-    
     var tabViewSelected : AppTabView?
 
     override func viewDidLoad() {
@@ -41,6 +40,7 @@ class ReminderTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        setMessageIfEmpty()
         return reminders.count
     }
 
@@ -146,20 +146,42 @@ class ReminderTableViewController: UITableViewController {
         
         if let tabView = tabViewSelected {
             switch tabView {
-            case .Current:
-                print("Current Loading")
-                reminderList = Reminder.allUpcomingReminders()
-                break
             case .Past:
                 reminderList = Reminder.allPastReminders()
-                print("Past loading")
+                os_log("Loading past reminders", log: .default, type: .debug)
+                break
+            default:
+                os_log("Loading current reminders", log: .default, type: .debug)
+                reminderList = Reminder.allUpcomingReminders()
                 break
             }
         }
-                if !reminderList.isEmpty {
+        if !reminderList.isEmpty {
             reminders = reminderList
         }
-        print (reminders.count)
+    }
+    
+    private func setMessageIfEmpty() {
+        if reminders.isEmpty {
+            // style it as necessary
+            tableView.backgroundView = getEmptyViewLabel()
+            tableView.separatorStyle = .none
+        } else {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
+
+        }
+    }
+    
+    private func getEmptyViewLabel() -> UILabel{
+        let emptyStateLabel = UILabel(frame: tableView.frame)
+        emptyStateLabel.text = "No Reminders to list!"
+        emptyStateLabel.textColor = UIColor.black
+        emptyStateLabel.numberOfLines = 0;
+        emptyStateLabel.textAlignment = .center;
+        emptyStateLabel.font = UIFont(name: "TrebuchetMS", size: 15)
+        emptyStateLabel.sizeToFit()
+        return emptyStateLabel
     }
 
     //MARK: Actions

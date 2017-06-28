@@ -18,7 +18,7 @@
 		814DD0B11EFD3B33001B4E87 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0B01EFD3B33001B4E87 /* SQLite.framework */; };
 		814DD0B21EFD3BD1001B4E87 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0A01EFCD159001B4E87 /* Nimble.framework */; };
 		814DD0B31EFD3BD1001B4E87 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814DD0A11EFCD159001B4E87 /* Quick.framework */; };
-		816E85891F03DFF9008BD955 /* ReminderTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816E85881F03DFF9008BD955 /* ReminderTabViewController.swift */; };
+		816E85891F03DFF9008BD955 /* ReminderTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816E85881F03DFF9008BD955 /* ReminderTabbedViewController.swift */; };
 		81A600F01F011DE4002BA9C7 /* ReminderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A600EF1F011DE4002BA9C7 /* ReminderViewCell.swift */; };
 		81A600F21F012426002BA9C7 /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A600F11F012426002BA9C7 /* ReminderTableViewController.swift */; };
 		81A600F41F012506002BA9C7 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A600F31F012506002BA9C7 /* ReminderViewController.swift */; };
@@ -73,7 +73,7 @@
 		814DD0AC1EFD3AE0001B4E87 /* ReminderModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderModelSpec.swift; sourceTree = "<group>"; };
 		814DD0AE1EFD3AF0001B4E87 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		814DD0B01EFD3B33001B4E87 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
-		816E85881F03DFF9008BD955 /* ReminderTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTabViewController.swift; sourceTree = "<group>"; };
+		816E85881F03DFF9008BD955 /* ReminderTabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTabbedViewController.swift; sourceTree = "<group>"; };
 		81A600EF1F011DE4002BA9C7 /* ReminderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewCell.swift; sourceTree = "<group>"; };
 		81A600F11F012426002BA9C7 /* ReminderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
 		81A600F31F012506002BA9C7 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 			children = (
 				81A600F31F012506002BA9C7 /* ReminderViewController.swift */,
 				81A600F11F012426002BA9C7 /* ReminderTableViewController.swift */,
-				816E85881F03DFF9008BD955 /* ReminderTabViewController.swift */,
+				816E85881F03DFF9008BD955 /* ReminderTabbedViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -387,7 +387,7 @@
 				814DD0AF1EFD3AF0001B4E87 /* Reminder.swift in Sources */,
 				81A600F61F02AC11002BA9C7 /* Reminder+SQLite.swift in Sources */,
 				81A600F01F011DE4002BA9C7 /* ReminderViewCell.swift in Sources */,
-				816E85891F03DFF9008BD955 /* ReminderTabViewController.swift in Sources */,
+				816E85891F03DFF9008BD955 /* ReminderTabbedViewController.swift in Sources */,
 				814DD0701EFCCB17001B4E87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

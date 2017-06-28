@@ -177,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="1983.2" y="28.335832083958024"/>
         </scene>
-        <!--Reminder Tab View Controller-->
+        <!--Reminder Tabbed View Controller-->
         <scene sceneID="2Xa-WA-oXF">
             <objects>
-                <tabBarController id="y3Z-Mb-X72" customClass="ReminderTabViewController" customModule="iMindYou" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="y3Z-Mb-X72" customClass="ReminderTabbedViewController" customModule="iMindYou" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7w9-QX-cJ5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

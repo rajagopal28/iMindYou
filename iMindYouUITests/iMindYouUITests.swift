@@ -65,7 +65,7 @@ class iMindYouUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         app.launch()
         
-        // Make sure we're displaying the reminders screen        let addButton = app.buttons.staticTexts["+"]
+        // Make sure we're displaying the reminders screen 
         
         let addButton = app.navigationBars["Reminders"].buttons["Add"]
         XCTAssertTrue(addButton.exists)
@@ -80,7 +80,7 @@ class iMindYouUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         app.launch()
         
-        // Make sure we're displaying the reminders screen        let addButton = app.buttons.staticTexts["+"]
+        // Make sure we're displaying the reminders screen 
         
         let addButton = app.navigationBars["Reminders"].buttons["Add"]
         
@@ -108,7 +108,7 @@ class iMindYouUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         app.launch()
         
-        // Make sure we're displaying the reminders screen        let addButton = app.buttons.staticTexts["+"]
+        // Make sure we're displaying the reminders screen 
         
         let addButton = app.navigationBars["Reminders"].buttons["Add"]
         
@@ -229,6 +229,21 @@ class iMindYouUITests: XCTestCase {
         
          XCTAssertEqual(allCells.count, 0, "There should be no reminders after delete")
         
+    }
+    
+    func testShouldDisplayNoRemindersMessageIfEmpty() {
+        // Use recording to get started writing UI tests.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        app.launch()
+        
+        // Make sure we're displaying the reminders screen 
+        
+        let addButton = app.navigationBars["Reminders"].buttons["Add"]
+        XCTAssertTrue(addButton.exists)
+        addButton.tap()
+        
+        let emptyMessage = app.staticTexts["No Reminders to list!"]
+        XCTAssertNotNil(emptyMessage.exists)
     }
     
 }

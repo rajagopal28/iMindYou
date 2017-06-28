@@ -105,8 +105,7 @@ extension Reminder {
             
             return true
         } catch {
-            os_log("Select all failed", log: OSLog.default, type: .error)
-            print("Insert failed")
+            os_log("Insert Failed", log: OSLog.default, type: .error)
             return false
         }
     }

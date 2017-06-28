@@ -10,7 +10,8 @@ import UIKit
 import os.log
 
 
-class ReminderTabViewController: UITabBarController, UITabBarControllerDelegate {
+class ReminderTabbedViewController: UITabBarController, UITabBarControllerDelegate {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,6 @@ class ReminderTabViewController: UITabBarController, UITabBarControllerDelegate 
             os_log("Unkown Tab selected, not handling datafetch", log: .default, type: .error)
             
         }
-        print ("changing..")
         let homeViewController : UINavigationController? = self.viewControllers?[tabBarIndex]  as? UINavigationController
         
         let reminderViewController : ReminderTableViewController?  = homeViewController?.viewControllers[0] as? ReminderTableViewController
