@@ -58,7 +58,7 @@ class ReminderViewController: UIViewController {
     // MARK: Actions
     @IBAction func cancelAction(_ sender: Any) {
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
-        let isPresentingInAddMode = presentingViewController is UINavigationController
+        let isPresentingInAddMode = presentingViewController != nil
         if isPresentingInAddMode {
             dismiss(animated: true, completion: nil)
         } else if let owningNavigationController = navigationController {

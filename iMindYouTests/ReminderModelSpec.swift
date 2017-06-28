@@ -13,13 +13,13 @@ class ReminderModelSpec: QuickSpec {
     override func spec() {
         describe("test Reminder model") {
             it("Should create ReminderModel if the title is not empty") {
-                let reminder = Reminder(title: "Some title", summary: "short summary", timeStamp: Date())
+                let reminder = Reminder(id: nil, title: "Some title", summary: "short summary", timeStamp: Date())
                 expect(reminder).notTo(beNil())
                 expect(reminder?.title).to(equal("Some title"))
             }
             
             it("Should return nil if the title is empty") {
-                let reminder = Reminder(title: "", summary: "short summary", timeStamp: Date())
+                let reminder = Reminder(id: nil, title: "", summary: "short summary", timeStamp: Date())
                 expect(reminder).to(beNil())
             }
         }
