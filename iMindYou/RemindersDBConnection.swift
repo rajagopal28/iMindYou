@@ -19,6 +19,7 @@ class RemindersDBConnection {
     
     private static var instance : RemindersDBConnection?
     
+    // MARK: Private methods
     private init() {
         if db == nil {
             do {
@@ -29,10 +30,24 @@ class RemindersDBConnection {
         }
     }
     
-    public static func getDB() -> Connection {
+    private static func createIntance() {
         if(instance == nil) {
             instance = RemindersDBConnection()
         }
+    }
+    
+    public static func getDB() -> Connection {
+        createIntance()
         return (instance?.db)!
+    }
+    
+    public static func setTestDB() {
+        createIntance()
+        do {
+            instance?.db = try Connection(.temporary)
+        } catch {
+            os_log("Database initialisation failed", log: OSLog.default, type: .error)
+        }
+        
     }
 }
