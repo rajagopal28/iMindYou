@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ykb-xl-fgF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y3Z-Mb-X72">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="3fH-Db-bPN">
+            <objects>
+                <navigationController id="zBt-v4-g5Q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="N8d-OG-I9w"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IL4-BO-Rr8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="t0I-du-3Ai" kind="relationship" relationship="rootViewController" id="36O-hp-HAp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hco-W7-HXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-866" y="785"/>
+        </scene>
         <!--Reminders-->
         <scene sceneID="B0a-cJ-e6K">
             <objects>
@@ -160,10 +177,29 @@
             </objects>
             <point key="canvasLocation" x="1983.2" y="28.335832083958024"/>
         </scene>
+        <!--Reminder Tab View Controller-->
+        <scene sceneID="2Xa-WA-oXF">
+            <objects>
+                <tabBarController id="y3Z-Mb-X72" customClass="ReminderTabViewController" customModule="iMindYou" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="7w9-QX-cJ5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ykb-xl-fgF" kind="relationship" relationship="viewControllers" id="6WN-cb-DLM"/>
+                        <segue destination="zBt-v4-g5Q" kind="relationship" relationship="viewControllers" id="8BV-Dr-itl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOP-Yh-Eau" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2154" y="28"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="vfN-Jh-pMl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ykb-xl-fgF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="WTk-d6-amY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qbr-Fb-0Tr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -176,7 +212,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7a-E3-SmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-764" y="29.23538230884558"/>
+            <point key="canvasLocation" x="-865" y="-284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4MR-Sa-hFU">
@@ -198,6 +234,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="36O-hp-HAp"/>
         <segue reference="afn-kc-VIp"/>
     </inferredMetricsTieBreakers>
 </document>

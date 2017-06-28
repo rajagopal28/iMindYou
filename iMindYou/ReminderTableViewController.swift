@@ -12,6 +12,8 @@ import os.log
 class ReminderTableViewController: UITableViewController {
     
     var reminders = [Reminder]()
+    
+    var tabViewSelected : AppTabView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,11 @@ class ReminderTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
+        loadRemindersFromDB()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         loadRemindersFromDB()
     }
 
@@ -135,9 +142,22 @@ class ReminderTableViewController: UITableViewController {
     private func loadRemindersFromDB() {
         
         Reminder.initDB()
-        let reminderList: [Reminder] = Reminder.all()
-        if !reminderList.isEmpty {
-            reminders += reminderList
+        var reminderList = [Reminder]()
+        
+        if let tabView = tabViewSelected {
+            switch tabView {
+            case .Current:
+                print("Current Loading")
+                reminderList = Reminder.allUpcomingReminders()
+                break
+            case .Past:
+                reminderList = Reminder.allPastReminders()
+                print("Past loading")
+                break
+            }
+        }
+                if !reminderList.isEmpty {
+            reminders = reminderList
         }
         print (reminders.count)
     }

@@ -9,6 +9,10 @@
 import UIKit
 import os.log
 
+public enum AppTabView {
+    case Past, Current
+}
+
 class ReminderViewController: UIViewController {
 
     // MARK: view Outlets

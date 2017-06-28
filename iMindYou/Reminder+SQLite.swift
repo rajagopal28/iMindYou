@@ -52,6 +52,46 @@ extension Reminder {
         }
         return reminders
     }
+    public static func allPastReminders() -> [Reminder] {
+        let db = RemindersDBConnection.getDB()
+        var reminders = [Reminder]()
+        do {
+            let query = Reminder.table.select(Reminder.table[*])
+                .filter(Reminder.reminderOnDate < Date())
+                .order(Reminder.reminderOnDate.desc)
+            for reminder in try db.prepare(query) {
+                if let reminderObj = Reminder(
+                    id: Int(reminder[id]),
+                    title: reminder[Reminder.title],
+                    summary: reminder[Reminder.description],
+                    timeStamp: reminder[Reminder.reminderOnDate]){
+                    reminders.append(reminderObj)                }
+            }
+        } catch {
+            os_log("Select all failed", log: OSLog.default, type: .error)
+        }
+        return reminders
+    }
+    public static func allUpcomingReminders() -> [Reminder] {
+        let db = RemindersDBConnection.getDB()
+        var reminders = [Reminder]()
+        do {
+            let query = Reminder.table.select(Reminder.table[*])
+                .filter(Reminder.reminderOnDate >= Date())
+                .order(Reminder.reminderOnDate.desc)
+            for reminder in try db.prepare(query) {
+                if let reminderObj = Reminder(
+                    id: Int(reminder[id]),
+                    title: reminder[Reminder.title],
+                    summary: reminder[Reminder.description],
+                    timeStamp: reminder[Reminder.reminderOnDate]){
+                    reminders.append(reminderObj)                }
+            }
+        } catch {
+            os_log("Select all failed", log: OSLog.default, type: .error)
+        }
+        return reminders
+    }
     
     // MARK: Public methods of instance
     public func save() -> Bool {
