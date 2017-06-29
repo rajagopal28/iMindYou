@@ -40,7 +40,6 @@ class ReminderTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        setMessageIfEmpty()
         return reminders.count
     }
 
@@ -144,20 +143,33 @@ class ReminderTableViewController: UITableViewController {
         Reminder.initDB()
         var reminderList = [Reminder]()
         
-        if let tabView = tabViewSelected {
-            switch tabView {
-            case .Past:
-                reminderList = Reminder.allPastReminders()
-                os_log("Loading past reminders", log: .default, type: .debug)
-                break
-            default:
-                os_log("Loading current reminders", log: .default, type: .debug)
-                reminderList = Reminder.allUpcomingReminders()
-                break
-            }
+        let tabView = tabViewSelected ?? AppTabView.Current
+        switch tabView {
+        case .Past:
+            reminderList = Reminder.allPastReminders()
+            os_log("Loading past reminders", log: .default, type: .debug)
+            break
+        case .Current:
+            os_log("Loading current reminders", log: .default, type: .debug)
+            reminderList = Reminder.allUpcomingReminders()
+            break
         }
         if !reminderList.isEmpty {
             reminders = reminderList
+            self.tableView.reloadData()
+        }
+        setMessageIfEmpty()
+        if tabViewSelected == nil { // load alert only for the fist time
+            showCurrentDayReminderAlert()
+        }
+    }
+    
+    private func showCurrentDayReminderAlert() {
+        let count = Reminder.todayReminderCount()
+        if count > 0 {
+            let alert = UIAlertController(title: "iMindYou", message: "You have \(count) reminder(s) for today!!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

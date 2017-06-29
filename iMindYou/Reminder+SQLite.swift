@@ -93,6 +93,19 @@ extension Reminder {
         return reminders
     }
     
+    public static func todayReminderCount() -> Int {
+        let db = RemindersDBConnection.getDB()
+        do {
+            let now = Date()
+            let endTime = getEndTimeOfDate(mDate: now)
+            let count = try db.scalar(Reminder.table.filter(Reminder.reminderOnDate >= now && Reminder.reminderOnDate <= endTime).count)
+            return count
+        } catch {
+            os_log("Count of today reminders failed all failed", log: OSLog.default, type: .error)
+        }
+        return 0
+    }
+    
     // MARK: Public methods of instance
     public func save() -> Bool {
         let db = RemindersDBConnection.getDB()
@@ -137,5 +150,18 @@ extension Reminder {
             }
         }
         return false
+    }
+    
+    // MARK: private methods
+    private static func getEndTimeOfDate(mDate: Date) -> Date {
+        let gregorian = Calendar(identifier: .gregorian)
+        var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: mDate)
+        // Change the time to 23:59:59 in your locale
+        components.hour = 23
+        components.minute = 59
+        components.second = 59
+        
+        let endTime = gregorian.date(from: components)!
+        return endTime
     }
 }
