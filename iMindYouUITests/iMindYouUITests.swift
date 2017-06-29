@@ -31,6 +31,7 @@ class iMindYouUITests: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app.terminate()
         super.tearDown()
     }
     
@@ -240,10 +241,57 @@ class iMindYouUITests: XCTestCase {
         
         let addButton = app.navigationBars["Reminders"].buttons["Add"]
         XCTAssertTrue(addButton.exists)
-        addButton.tap()
         
         let emptyMessage = app.staticTexts["No Reminders to list!"]
         XCTAssertNotNil(emptyMessage.exists)
+    }
+    
+    
+//    func testShouldDisplayPopupForNewReminders() {
+//        
+//        app.launch()
+//       
+//        let addButton = app.navigationBars["Reminders"].buttons["Add"]
+//        addButton.tap()
+//        
+//        let reminderTitleTextField = app.textFields["Reminder Title"]
+//        reminderTitleTextField.tap()
+//        reminderTitleTextField.tap()
+//        reminderTitleTextField.typeText("Reminder1")
+//        
+//        let remdescriptionTextView = app.textViews["remDescription"]
+//        remdescriptionTextView.tap()
+//        remdescriptionTextView.tap()
+//        remdescriptionTextView.typeText("description")
+//        
+//        
+//        let saveButton = app.navigationBars["New Reminder"].buttons["Save"]
+//        XCTAssertTrue(saveButton.exists)
+//        saveButton.tap()
+//        
+//        let allCells = app.tables.cells
+//        
+//        let newCell = allCells.containing(.staticText, identifier:"Title : Reminder1").staticTexts["Description : description"]
+//        XCTAssertTrue(newCell.exists)
+//        
+//        app.terminate()
+//        app.launch()
+//
+//    }
+    
+    func testShouldSwitchBetweenTabs() {
+        app.launch()
+        
+        let tabBarsQuery = app.tabBars
+        
+        XCTAssertTrue(tabBarsQuery.buttons["Most Viewed"].isSelected)
+        
+        tabBarsQuery.buttons["History"].tap()
+        XCTAssertTrue(tabBarsQuery.buttons["History"].isSelected)
+        
+        tabBarsQuery.buttons["Most Viewed"].tap()
+        XCTAssertTrue(tabBarsQuery.buttons["Most Viewed"].isSelected)
+
     }
     
 }
