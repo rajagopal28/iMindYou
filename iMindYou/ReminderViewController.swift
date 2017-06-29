@@ -77,6 +77,9 @@ class ReminderViewController: UIViewController {
             titleTextView.text   = reminder.title
             summaryTextView.text = reminder.summary
             dateTimePickerView.setDate(reminder.reminderTimestamp, animated: true)
+            dateTimePickerView.minimumDate = reminder.reminderTimestamp
+        } else {
+             dateTimePickerView.minimumDate = Date()
         }
     }
     
