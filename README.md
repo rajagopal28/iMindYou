@@ -27,9 +27,9 @@
 ### The known bugs:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following are the few bugs I have noticed myself and I am intending to fix them as I continue the process of learning iOS development.
 - Date time picker disabling for the edit reminders - On editing a past reminder the date displayed is the one that has been saved while we should disable or show error if the user tries to save the reminder with the old date.
-- On Updating a reminder from past list and saving, the item gets added to the past list. This is because of  reminders[selectedIndexPath.row] = reminder in the save navigation to TableViewController.
+- On Updating a reminder from past list and saving, the item gets added to the past list. This is because of  ``` reminders[selectedIndexPath.row] = reminder ``` in the save navigation to TableViewController.
 - Popup being displayed based on the current tab enum being nil. Clean fix should replace this patch.
-- The cancel flow for new reminder is patched at the code  let isPresentingInAddMode = presentingViewController != nil while it should be let isPresentingInAddMode = presentingViewController is UINavigationController. The app failed to pick the Class check due to the embedding of TabbedViewContrller.
+- The cancel flow for new reminder is patched at the code ```  let isPresentingInAddMode = presentingViewController != nil ``` while it should be ``` let isPresentingInAddMode = presentingViewController ```  is UINavigationController. The app failed to pick the Class check due to the embedding of TabbedViewContrller.
 
 ### The Future:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apart from fixing the above bugs I also intend to make the app “Reminder” like by including alarm kind of features to notify the user on the specified time. Snoozing and other Reminder centric features.
