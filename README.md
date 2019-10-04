@@ -17,13 +17,13 @@
 -
 ### Application walkthrough:
 #### Home - Tabbed View & today’s reminder alert:
-![Home tabs and Alert](https://file.ac/5dcUU4USKUY/image1.png)
+![Home tabs and Alert](./images/image1.png)
 #### History Tab & Empty List View:
-![History and Empty View](https://file.ac/5dcUU4USKUY/image2.png)
+![History and Empty View](./images/image2.png)
 #### New Reminder View & Edit reminder View:
-![New and Edit Reminder](https://file.ac/5dcUU4USKUY/image3.png)
+![New and Edit Reminder](./images/image3.png)
 #### Edit List View and Delete Item:
-![Edit mode and Deletion](https://file.ac/5dcUU4USKUY/image4.png)
+![Edit mode and Deletion](./images/image4.png)
 ### The known bugs:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following are the few bugs I have noticed myself and I am intending to fix them as I continue the process of learning iOS development.
 - Date time picker disabling for the edit reminders - On editing a past reminder the date displayed is the one that has been saved while we should disable or show error if the user tries to save the reminder with the old date.
